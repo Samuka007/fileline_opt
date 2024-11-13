@@ -1,0 +1,12 @@
+{
+    errdata = "\27[1msrc/find_most_freq.cpp:2:6: \27[0m\27[0;1;34mremark: \27[0m\27[1mloop not vectorized: value that could not be identified as reduction is used outside the loop [-Rpass-analysis=loop-vectorize]\27[0m\
+    2 | void find_most_freq_line(uint32_t *line_num,uint32_t *most_freq_len,uint32_t *most_freq_len_linenum){\27[0m\
+      | \27[0;1;32m     ^\
+\27[0m\27[1msrc/find_most_freq.cpp:2:6: \27[0m\27[0;1;36mnote: \27[0mcould not determine the original source location for src/find_most_freq.cpp:5:5\27[0m\
+\27[1msrc/find_most_freq.cpp:2:6: \27[0m\27[0;1;36mnote: \27[0mcould not determine the original source location for src/find_most_freq.cpp:5:5\27[0m\
+\27[1msrc/find_most_freq.cpp:2:6: \27[0m\27[0;1;34mremark: \27[0m\27[1mloop not vectorized [-Rpass-missed=loop-vectorize]\27[0m\
+    2 | void find_most_freq_line(uint32_t *line_num,uint32_t *most_freq_len,uint32_t *most_freq_len_linenum){\27[0m\
+      | \27[0;1;32m     ^\
+\27[0m\27[1msrc/find_most_freq.cpp:2:6: \27[0m\27[0;1;36mnote: \27[0mcould not determine the original source location for src/find_most_freq.cpp:5:5\27[0m\
+"
+}

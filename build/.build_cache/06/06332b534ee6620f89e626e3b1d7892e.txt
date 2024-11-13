@@ -1,0 +1,5 @@
+{
+    errdata = "src/find_most_freq.cpp:5:18: missed: couldn't vectorize loop\
+src/find_most_freq.cpp:6:24: missed: not vectorized: unsupported use in stmt.\
+"
+}

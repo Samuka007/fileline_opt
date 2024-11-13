@@ -1,0 +1,18 @@
+{
+    errdata = "src/filelines.cpp:46:48: missed: statement clobbers memory: __builtin_memset (&line_num, 0, 4096);\
+src/filelines.cpp:49:57: missed: statement clobbers memory: start = std::chrono::_V2::system_clock::now ();\
+src/filelines.cpp:50:23: missed: statement clobbers memory: filelines_baseline (_3, &total_line_num, &line_num);\
+src/filelines.cpp:51:55: missed: statement clobbers memory: end = std::chrono::_V2::system_clock::now ();\
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, \"Baseline execution time: %f seconds\\n\", _41);\
+src/filelines.cpp:56:24: missed: statement clobbers memory: find_most_freq_line (&line_num, &most_freq_len, &most_freq_len_linenum);\
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, \"%d %d %d\\n\", total_line_num.2_7, most_freq_len.1_6, most_freq_len_linenum.0_5);\
+src/filelines.cpp:59:48: missed: statement clobbers memory: __builtin_memset (&line_num, 0, 4096);\
+src/filelines.cpp:62:52: missed: statement clobbers memory: start = std::chrono::_V2::system_clock::now ();\
+src/filelines.cpp:63:24: missed: statement clobbers memory: filelines_vectorize (_9, &total_line_num, &line_num);\
+src/filelines.cpp:64:50: missed: statement clobbers memory: end = std::chrono::_V2::system_clock::now ();\
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, \"Vectorized execution time: %f seconds\\n\", _44);\
+src/filelines.cpp:68:24: missed: statement clobbers memory: find_most_freq_line (&line_num, &most_freq_len, &most_freq_len_linenum);\
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, \"%d %d %d\\n\", total_line_num.5_12, most_freq_len.4_11, most_freq_len_linenum.3_10);\
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, \"Usage: %s filepath\", _1);\
+"
+}

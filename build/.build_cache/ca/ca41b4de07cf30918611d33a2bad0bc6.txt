@@ -1,0 +1,26 @@
+{
+    errdata = "src/filelines_gen.cpp:21:18: missed: couldn't vectorize loop\
+src/filelines_gen.cpp:21:44: missed: not vectorized: complicated access pattern.\
+src/filelines_gen.cpp:13:40: missed: statement clobbers memory: __builtin_memset (line_num_15(D), 0, 4096);\
+src/filelines_gen.cpp:18:17: optimized: basic block part vectorized using 64 byte vectors\
+src/filelines_gen.cpp:18:17: optimized: basic block part vectorized using 64 byte vectors\
+src/filelines_gen.cpp:49:9: missed: couldn't vectorize loop\
+src/filelines_gen.cpp:49:9: missed: not vectorized: control flow in loop.\
+src/filelines_gen.cpp:39:22: missed: couldn't vectorize loop\
+src/filelines_gen.cpp:39:22: missed: not vectorized: control flow in loop.\
+src/filelines_gen.cpp:35:18: optimized: loop vectorized using 16 byte vectors\
+src/filelines_gen.cpp:35:18: optimized: loop vectorized using 8 byte vectors\
+/usr/include/x86_64-linux-gnu/bits/fcntl2.h:53:27: missed: statement clobbers memory: _40 = __open_alias (_3, 577, 438);\
+src/filelines_gen.cpp:33:18: missed: statement clobbers memory: init_line_num (&total_line_num, &line_num);\
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: missed: statement clobbers memory: __builtin_memcpy (&wbuf, &buf, _8);\
+src/filelines_gen.cpp:45:32: missed: statement clobbers memory: write (_40, &wbuf, _10);\
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, \"%d\\n\", total_line_num.1_13);\
+src/filelines_gen.cpp:52:10: missed: statement clobbers memory: close (_40);\
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, \"Usage: %s filepath\", _1);\
+src/filelines_gen.cpp:35:33: missed: not vectorized: vectorization is not profitable.\
+src/filelines_gen.cpp:35:33: missed: not vectorized: vectorization is not profitable.\
+src/filelines_gen.cpp:35:33: missed: not vectorized: vectorization is not profitable.\
+src/filelines_gen.cpp:35:33: missed: not vectorized: vectorization is not profitable.\
+src/filelines_gen.cpp:35:33: missed: not vectorized: vectorization is not profitable.\
+"
+}
