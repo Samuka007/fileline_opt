@@ -70,7 +70,7 @@ void filelines_vectorize(char *filepath, uint32_t *total_line_num,
       int mask_1 = _mm256_movemask_epi8(cmp);
       int last_pos = 0;
       while (mask_1 != 0) {
-        int pos = __builtin_ctz(mask_1);
+        int pos = _tzcnt_u32(mask_1);
         (*total_line_num)++;
         if (cur_len + pos - last_pos >= MAX_LEN)
           line_num[MAX_LEN - 1]++;
