@@ -1,5 +1,12 @@
 all: bin/filelines_gen bin/filelines
 
+debug: bin/filelines_gen_debug bin/filelines_debug
+
+bin/filelines_gen_debug: src/filelines_gen.cpp src/find_most_freq.h
+	g++ src/filelines_gen.cpp -o bin/filelines_gen_debug -O2 -g
+bin/filelines_debug: bin/filelines.o bin/find_most_freq.o bin/filelines_baseline.o
+	g++ bin/filelines.o bin/find_most_freq.o bin/filelines_baseline.o -mavx2 -O2 -g -o bin/filelines_debug
+
 filelines_gen: src/filelines_gen.cpp src/find_most_freq.h
 	g++ src/filelines_gen.cpp -o bin/filelines_gen -O2
 filelines: bin/filelines.o bin/find_most_freq.o bin/filelines_baseline.o
