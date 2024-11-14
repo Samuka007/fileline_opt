@@ -10,14 +10,7 @@
 uint32_t line_num[MAX_LEN];
 uint32_t total_line_num;
 void init_line_num(uint32_t *total_line_num,uint32_t *line_num){   
-    for(int i=0;i<MAX_LEN;i++) line_num[i]=0;
-    line_num[0]=5;
-    line_num[1]=8;
-    line_num[2]=14;
-    line_num[7]=9;
-    line_num[12]=8;
-    line_num[13]=1145;
-    line_num[14]=9;
+    for(int i=0;i<MAX_LEN;i++) line_num[i]=i*8;
     for(int i=0;i<MAX_LEN;i++) *total_line_num+=line_num[i];    
 }
 int main(int argc,char *argv[]){
@@ -39,10 +32,19 @@ int main(int argc,char *argv[]){
         for(int i=0;i<MAX_LEN;i++){
             if(line_num[i]!=0){
                 all_zero=0;
-                memcpy(wbuf,buf,i);
+                int copy_len = (i / 26) * 26;
+                for (int j = 0; j < copy_len; j+=26) {
+                    memcpy(wbuf+j, buf, 26);
+                }
+                if (i % 26 != 0) {
+                    memcpy(wbuf+copy_len, buf, i % 26);
+                }
                 wbuf[i]=0x0a;
-                int write_num;
-                write_num=write(handle,wbuf,i+1);
+                int write_num = write(handle, wbuf, i+1);
+                if (write_num < 0) {
+                    perror("write");
+                    exit(EXIT_FAILURE);
+                }
                 line_num[i]--;
             }
         }

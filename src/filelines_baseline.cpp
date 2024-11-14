@@ -56,7 +56,7 @@ void filelines_vectorize(char *filepath, uint32_t *total_line_num,
     return;
   }
   int cur_len = 0;
-  __m512i newline = _mm512_set1_epi8('\n');
+  __m256i newline = _mm256_set1_epi8('\n');
 
   while (1) {
     int bytes_read = read(handle, bp, BLOCK_SIZE);
@@ -64,12 +64,13 @@ void filelines_vectorize(char *filepath, uint32_t *total_line_num,
       break;
 
     int i = 0;
-    for (; i <= bytes_read - 64; i += 64) {
-      __m512i chunk_1 = _mm512_loadu_si512((__m512i *)&bp[i]);
-      __mmask64 mask_1 = _mm512_cmpeq_epi8_mask(chunk_1, newline);
+    for (; i <= bytes_read - 32; i += 32) {
+      __m256i chunk_1 = _mm256_loadu_si256((__m256i *)&bp[i]);
+      __m256i cmp = _mm256_cmpeq_epi8(chunk_1, newline);
+      int mask_1 = _mm256_movemask_epi8(cmp);
       int last_pos = 0;
       while (mask_1 != 0) {
-        int64_t pos = __tzcnt_u64(mask_1);
+        int pos = __builtin_ctz(mask_1);
         (*total_line_num)++;
         if (cur_len + pos - last_pos >= MAX_LEN)
           line_num[MAX_LEN - 1]++;
@@ -79,7 +80,7 @@ void filelines_vectorize(char *filepath, uint32_t *total_line_num,
         mask_1 = mask_1 & (mask_1 - 1);
         last_pos = pos + 1;
       }
-      cur_len += 64 - last_pos;
+      cur_len += 32 - last_pos;
     }
     // 处理剩余字节
     for (; i < bytes_read; i++) {
@@ -122,7 +123,7 @@ void filelines_thread_func(ThreadData *data) {
     return;
   }
   int cur_len = 0;
-  __m512i newline = _mm512_set1_epi8('\n');
+  __m256i newline = _mm256_set1_epi8('\n');
 
   while (1) {
     int bytes_read = read(handle, bp, BLOCK_SIZE);
@@ -130,12 +131,13 @@ void filelines_thread_func(ThreadData *data) {
       break;
 
     int i = 0;
-    for (; i <= bytes_read - 64; i += 64) {
-      __m512i chunk_1 = _mm512_loadu_si512((__m512i *)&bp[i]);
-      __mmask64 mask_1 = _mm512_cmpeq_epi8_mask(chunk_1, newline);
+    for (; i <= bytes_read - 32; i += 32) {
+      __m256i chunk_1 = _mm256_loadu_si256((__m256i *)&bp[i]);
+      __m256i cmp = _mm256_cmpeq_epi8(chunk_1, newline);
+      int mask_1 = _mm256_movemask_epi8(cmp);
       int last_pos = 0;
       while (mask_1 != 0) {
-        int64_t pos = __tzcnt_u64(mask_1);
+        int pos = __builtin_ctz(mask_1);
         data->total_line_num++;
         if (cur_len + pos - last_pos >= MAX_LEN)
           data->line_num[MAX_LEN - 1]++;
@@ -145,7 +147,7 @@ void filelines_thread_func(ThreadData *data) {
         mask_1 = mask_1 & (mask_1 - 1);
         last_pos = pos + 1;
       }
-      cur_len += 64 - last_pos;
+      cur_len += 32 - last_pos;
     }
     // 处理剩余字节
     for (; i < bytes_read; i++) {

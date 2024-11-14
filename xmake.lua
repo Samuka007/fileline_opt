@@ -67,7 +67,7 @@ target("filelines")
 
    -- add_cxxflags("-funroll-loops")
    -- add_cxxflags("-msse4.2")
-   add_cxxflags("-march=native -mavx512f")
+   add_cxxflags("-march=native")
    -- add_cxxflags("-fopt-info-vec-missed")
    -- add_cxxflags("-fopt-info-vec")
    --add_cxxflags("-Rpass=loop-vectorize", {force = true})

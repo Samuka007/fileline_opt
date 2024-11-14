@@ -1,16 +1,21 @@
 [
 {
-  "directory": "/home/dk/workspace/cpp/filelines_proj",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++23", "-march=native", "-mavx512f", "-DNDEBUG", "-o", "build/.objs/filelines/linux/x86_64/release/src/filelines.cpp.o", "src/filelines.cpp"],
+  "directory": "/home/samuka/workspace/fileline_opt",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++23", "-march=native", "-DNDEBUG", "-o", "build/.objs/filelines/linux/x86_64/release/src/filelines.cpp.o", "src/filelines.cpp"],
   "file": "src/filelines.cpp"
 },
 {
-  "directory": "/home/dk/workspace/cpp/filelines_proj",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++23", "-march=native", "-mavx512f", "-DNDEBUG", "-o", "build/.objs/filelines/linux/x86_64/release/src/filelines_baseline.cpp.o", "src/filelines_baseline.cpp"],
-  "file": "src/filelines_baseline.cpp"
+  "directory": "/home/samuka/workspace/fileline_opt",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++23", "-march=native", "-DNDEBUG", "-o", "build/.objs/filelines/linux/x86_64/release/src/find_most_freq.cpp.o", "src/find_most_freq.cpp"],
+  "file": "src/find_most_freq.cpp"
 },
 {
-  "directory": "/home/dk/workspace/cpp/filelines_proj",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++23", "-march=native", "-mavx512f", "-DNDEBUG", "-o", "build/.objs/filelines/linux/x86_64/release/src/find_most_freq.cpp.o", "src/find_most_freq.cpp"],
-  "file": "src/find_most_freq.cpp"
+  "directory": "/home/samuka/workspace/fileline_opt",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++23", "-march=native", "-DNDEBUG", "-o", "build/.objs/filelines/linux/x86_64/release/src/filelines_gen.cpp.o", "src/filelines_gen.cpp"],
+  "file": "src/filelines_gen.cpp"
+},
+{
+  "directory": "/home/samuka/workspace/fileline_opt",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++23", "-march=native", "-DNDEBUG", "-o", "build/.objs/filelines/linux/x86_64/release/src/filelines_baseline.cpp.o", "src/filelines_baseline.cpp"],
+  "file": "src/filelines_baseline.cpp"
 }]

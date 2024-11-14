@@ -27,12 +27,9 @@ ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE 
 OR OTHER DEALINGS IN THE SOFTWARE.
 */
-#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
-#include <chrono>
-#include <thread>
 #include "find_most_freq.h"
 #include "filelines_baseline.h"
 
@@ -44,27 +41,27 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    for (int i = 0; i < MAX_LEN; i++) line_num[i] = 0;
-    total_line_num = 0;
+    // for (int i = 0; i < MAX_LEN; i++) line_num[i] = 0;
+    // total_line_num = 0;
 
-    auto start = std::chrono::high_resolution_clock::now();
-    filelines_baseline(argv[1], &total_line_num, line_num);
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = end - start;
-    printf("Baseline execution time: %f seconds\n", elapsed.count());
+    // auto start = std::chrono::high_resolution_clock::now();
+    // filelines_baseline(argv[1], &total_line_num, line_num);
+    // auto end = std::chrono::high_resolution_clock::now();
+    // std::chrono::duration<double> elapsed = end - start;
+    // printf("Baseline execution time: %f seconds\n", elapsed.count());
 
     uint32_t most_freq_len, most_freq_len_linenum;
-    find_most_freq_line(line_num, &most_freq_len, &most_freq_len_linenum);
-    printf("%d %d %d\n", total_line_num, most_freq_len, most_freq_len_linenum);
+    // find_most_freq_line(line_num, &most_freq_len, &most_freq_len_linenum);
+    // printf("%d %d %d\n", total_line_num, most_freq_len, most_freq_len_linenum);
 
-    for (int i = 0; i < MAX_LEN; i++) line_num[i] = 0;
-    total_line_num = 0;
+    // for (int i = 0; i < MAX_LEN; i++) line_num[i] = 0;
+    // total_line_num = 0;
 
-    start = std::chrono::high_resolution_clock::now();
+    // start = std::chrono::high_resolution_clock::now();
     filelines_vectorize(argv[1], &total_line_num, line_num);
-    end = std::chrono::high_resolution_clock::now();
-    elapsed = end - start;
-    printf("Vectorized execution time: %f seconds\n", elapsed.count());
+    // end = std::chrono::high_resolution_clock::now();
+    // elapsed = end - start;
+    // printf("Vectorized execution time: %f seconds\n", elapsed.count());
 
     find_most_freq_line(line_num, &most_freq_len, &most_freq_len_linenum);
     printf("%d %d %d\n", total_line_num, most_freq_len, most_freq_len_linenum);
