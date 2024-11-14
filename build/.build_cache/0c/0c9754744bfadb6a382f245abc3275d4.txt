@@ -1,8 +1,0 @@
-{
-    errdata = "src/filelines.cpp:44:40: missed: statement clobbers memory: __builtin_memset (&line_num, 0, 4096);\
-src/filelines.cpp:46:23: missed: statement clobbers memory: filelines_baseline (_2, &total_line_num, &line_num);\
-src/filelines.cpp:48:24: missed: statement clobbers memory: find_most_freq_line (&line_num, &most_freq_len, &most_freq_len_linenum);\
-/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, \"%d %d %d\\n\", total_line_num.2_5, most_freq_len.1_4, most_freq_len_linenum.0_3);\
-/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:23: missed: statement clobbers memory: __printf_chk (2, \"Usage: %s filepath\", _1);\
-"
-}
